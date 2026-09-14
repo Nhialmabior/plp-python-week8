@@ -1,0 +1,84 @@
+PERSONAL MINI-TOOLKIT PLAN
+
+PROJECT TITLE:
+To-Do List Manager
+
+PROJECT DESCRIPTION:
+This program is a simple To-Do List Manager that allows the user to add,
+view, complete, and remove tasks from a personal task list.
+
+TOOLS:
+
+1. Add Task
+The Add Task tool allows the user to enter a new task and add it to the to-do list.
+
+2. View Tasks
+The View Tasks tool displays all tasks currently stored in the to-do list.
+
+3. Complete Task
+The Complete Task tool allows the user to select a task and mark it as completed.
+
+4. Remove Task
+The Remove Task tool allows the user to select a task and remove it from the list.
+
+5. Quit
+The Quit option allows the user to safely exit the program.
+
+MENU TEXT:
+
+========================================
+        MY TO-DO LIST MANAGER
+========================================
+
+1. Add Task
+2. View Tasks
+3. Complete Task
+4. Remove Task
+5. Quit
+
+Enter your choice:
+
+CONCEPTS USED:
+
+Add Task:
+- Variables
+- input()
+- print()
+- Lists
+- append()
+- if / else
+- f-strings
+
+View Tasks:
+- Lists
+- for loop
+- if / else
+- print()
+- f-strings
+
+Complete Task:
+- Lists
+- input()
+- if / else
+- variables
+- print()
+- f-strings
+
+Remove Task:
+- Lists
+- input()
+- if / else
+- remove()
+- print()
+- f-strings
+
+Main Menu:
+- while loop
+- if / elif / else
+- input()
+- print()
+- f-strings
+
+INVALID INPUT:
+The program will display a polite message when the user enters an option
+that is not available instead of crashing.
