@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Mini-Toolkit | Task Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">✓</div>
+            <div>
+                <h1>My Toolkit</h1>
+                <p>Personal Task Manager</p>
+            </div>
+        </div>
+        <span class="status">Python Powered</span>
+    </header>
+
+    <main class="container">
+        <section class="welcome">
+            <p class="eyebrow">PERSONAL PRODUCTIVITY</p>
+            <h2>Stay organised.<br><span>Get things done.</span></h2>
+            <p>Manage your daily tasks and keep track of your progress.</p>
+        </section>
+
+        <section class="statistics">
+            <article class="stat-card">
+                <span>Total Tasks</span>
+                <strong id="totalTasks">0</strong>
+            </article>
+            <article class="stat-card">
+                <span>Pending</span>
+                <strong id="pendingTasks">0</strong>
+            </article>
+            <article class="stat-card">
+                <span>Completed</span>
+                <strong id="completedTasks">0</strong>
+            </article>
+        </section>
+
+        <section class="task-panel">
+            <div class="panel-heading">
+                <div>
+                    <h2>My Tasks</h2>
+                    <p>Manage your daily activities.</p>
+                </div>
+            </div>
+
+            <form id="taskForm">
+                <input type="text" id="taskInput"
+                    placeholder="What needs to be done?"
+                    maxlength="200" required>
+                <button type="submit">+ Add Task</button>
+            </form>
+
+            <p id="message" role="status"></p>
+
+            <div class="progress-section">
+                <div class="progress-label">
+                    <span>Overall progress</span>
+                    <strong id="progressText">0%</strong>
+                </div>
+                <div class="progress-track">
+                    <div id="progressBar"></div>
+                </div>
+            </div>
+
+            <div class="task-heading">
+                <h3>Task List</h3>
+                <select id="taskFilter" aria-label="Filter tasks">
+                    <option value="all">All Tasks</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+
+            <div id="taskList" class="task-list">
+                <p class="empty-state">Loading tasks...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Personal Mini-Toolkit · Developed with Python and Flask</p>
+        <p>Power Learn Project Africa · Week 8</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
