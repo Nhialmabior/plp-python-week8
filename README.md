@@ -1,56 +1,136 @@
 # Personal Mini-Toolkit: To-Do List Manager
 
-## Project Description
-
-The Personal Mini-Toolkit is a beginner-friendly Python To-Do List Manager.
-It allows users to add tasks, view tasks, mark tasks as completed, and
-remove tasks. The program uses a simple menu that keeps running until the
-user chooses the Quit option.
+A beginner-friendly command-line task manager built with Python as the **PLP Week 8 Personal Mini-Toolkit project**. It provides a simple menu for creating, viewing, completing, and removing tasks.
 
 ## Features
 
-* Add a new task
-* View all tasks
-* Mark a task as completed
-* Remove a task
-* Handle invalid menu choices without crashing
-* Display friendly messages to the user
+- Add tasks to your personal list.
+- View tasks with numbered positions.
+- Mark tasks as completed.
+- Remove tasks by their list number.
+- Reject empty tasks and handle invalid menu choices or task numbers.
+- Keep the menu running until the user chooses to quit.
 
-## Python Concepts Used
+> **Note:** Tasks are stored in memory while the program is running. They are cleared when you close the application. Persistent storage is a possible future improvement.
 
-This project demonstrates the main concepts learned in the course:
+## Requirements
 
-* Variables
-* Lists
-* `input()`
-* `print()`
-* `if`, `elif`, and `else`
-* `for` loops
-* `while` loops
-* f-strings
-* List methods such as `append()` and `pop()`
-* Basic input validation
+- Python 3.8 or newer
+- No third-party packages required
 
-## How to Run
+## Getting started
 
-1. Make sure Python is installed on your computer.
-2. Open a terminal in the project folder.
-3. Run the following command:
+1. Install Python 3 from [python.org](https://www.python.org/downloads/) if it is not already installed.
+2. Clone this repository:
 
-```bash
-python toolkit.py
+   ```bash
+   git clone https://github.com/Nhialmabior/plp-python-week8.git
+   ```
+
+3. Open the project folder:
+
+   ```bash
+   cd plp-python-week8
+   ```
+
+4. Start the application:
+
+   ```bash
+   python toolkit.py
+   ```
+
+   On some Windows installations, use `py toolkit.py` instead.
+
+## How to use
+
+When the program starts, choose an option from the menu:
+
+| Option | Action |
+| --- | --- |
+| 1 | Add a task |
+| 2 | View all tasks |
+| 3 | Mark a task as completed |
+| 4 | Remove a task |
+| 5 | Quit the application |
+
+Follow the prompts and enter the task number when asked to complete or remove a task.
+
+## Example
+
+```text
+========== MENU ==========
+1. Add Task
+2. View Tasks
+3. Complete Task
+4. Remove Task
+5. Quit
+Enter your choice: 1
+
+--- Add Task ---
+Enter a new task: Complete my Python assignment
+Task added successfully: Complete my Python assignment
 ```
 
-4. Choose an option from the menu.
-5. Follow the instructions displayed by the program.
-6. Choose option 5 when you want to quit.
+## Run the tests
 
-## Project Files
+The project includes automated unit tests using Python's built-in `unittest` framework. From the project folder, run:
 
-* `toolkit.py` - The complete Python program
-* `toolkit_plan.txt` - The project plan and concepts used
-* `screenshots/` - Screenshots showing the program working
+```bash
+python -m unittest discover -s tests -v
+```
 
-## Reflection
+GitHub Actions also runs these tests whenever code is pushed to `main` or a pull request targets `main`.
 
-The hardest part of this project was making the menu continue running after each tool finished. I had to make sure that the program only stopped when the user selected the Quit option. Another challenge was handling invalid task numbers so that the program would not crash when the user entered something unexpected. The bug that took the longest to fix was making sure the selected task number matched the correct position in the list. I solved this by checking the number before accessing the list. I also learned how a list can change while a program is running by adding, completing, and removing tasks. With one more week, I would add task priorities, due dates, and a way to save tasks so they remain available after the program closes.
+## Project structure
+
+```text
+plp-python-week8/
+├── .github/
+│   └── workflows/
+│       └── python-tests.yml
+├── screenshots/
+│   ├── menu_invalid_choice.png
+│   ├── task_adding.png
+│   ├── task_completed.png
+│   └── task_removed.png
+├── tests/
+│   └── test_toolkit.py
+├── .gitignore
+├── README.md
+├── toolkit.py
+└── toolkit_plan.txt
+```
+
+## Python concepts demonstrated
+
+- Variables and lists
+- Functions and function arguments
+- `input()` and `print()`
+- Conditional statements: `if`, `elif`, and `else`
+- `while` and `for` loops
+- f-strings
+- List methods: `append()` and `pop()`
+- `enumerate()` and list indexing
+- String methods: `strip()`, `isdigit()`, and `endswith()`
+- Input validation and the `if __name__ == "__main__"` pattern
+- Basic automated testing with `unittest`
+
+## Learning reflection
+
+The main challenge was keeping the menu active after each operation while ensuring that the application only exits when the user selects the Quit option. Handling invalid task numbers was another important lesson: the program must validate a number before using it to access a list. Building this project strengthened my understanding of lists, loops, conditions, functions, and input validation.
+
+## Future improvements
+
+- Save tasks to a file so they remain available after the application closes.
+- Add task priorities and due dates.
+- Allow users to edit existing tasks.
+
+## Author
+
+**Nhial Mabior Garang**
+
+- GitHub: [@Nhialmabior](https://github.com/Nhialmabior)
+
+---
+
+Created as a PLP Week 8 Python learning project.

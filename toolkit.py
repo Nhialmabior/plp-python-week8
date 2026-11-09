@@ -1,13 +1,9 @@
-# Personal Mini-Toolkit: To-Do List Manager
-
-# This list stores all tasks while the program is running.
-tasks = []
+"""Personal Mini-Toolkit: a simple command-line to-do list manager."""
 
 
-# This tool adds a new task to the to-do list.
-def add_task():
+def add_task(tasks):
+    """Prompt for a task and add it when the input is not empty."""
     print("\n--- Add Task ---")
-
     task = input("Enter a new task: ").strip()
 
     if task:
@@ -17,77 +13,72 @@ def add_task():
         print("You cannot add an empty task.")
 
 
-# This tool displays all tasks currently in the list.
-def view_tasks():
+def view_tasks(tasks):
+    """Display every task, or an empty-list message."""
     print("\n--- My Tasks ---")
 
     if not tasks:
         print("Your to-do list is empty.")
-    else:
-        for number, task in enumerate(tasks, start=1):
-            print(f"{number}. {task}")
+        return
+
+    for number, task in enumerate(tasks, start=1):
+        print(f"{number}. {task}")
 
 
-# This tool marks a selected task as completed.
-def complete_task():
+def complete_task(tasks):
+    """Mark a selected task as completed."""
     print("\n--- Complete Task ---")
 
     if not tasks:
         print("There are no tasks to complete.")
         return
 
-    view_tasks()
-
+    view_tasks(tasks)
     choice = input("Enter the task number to complete: ").strip()
 
-    if choice.isdigit():
-        task_number = int(choice)
-
-        if 1 <= task_number <= len(tasks):
-            completed_task = tasks[task_number - 1]
-
-            if "[Completed]" not in completed_task:
-                tasks[task_number - 1] = f"{completed_task} [Completed]"
-                print(f"Task completed: {completed_task}")
-            else:
-                print("That task is already completed.")
-        else:
-            print("That task number is not on your list.")
-    else:
+    if not choice.isdigit():
         print("Please enter a valid task number.")
+        return
+
+    task_number = int(choice)
+    if not 1 <= task_number <= len(tasks):
+        print("That task number is not on your list.")
+        return
+
+    index = task_number - 1
+    if tasks[index].endswith(" [Completed]"):
+        print("That task is already completed.")
+    else:
+        tasks[index] = f"{tasks[index]} [Completed]"
+        print(f"Task completed: {tasks[index][:-12]}")
 
 
-# This tool removes a selected task from the to-do list.
-def remove_task():
+def remove_task(tasks):
+    """Remove a selected task from the list."""
     print("\n--- Remove Task ---")
 
     if not tasks:
         print("There are no tasks to remove.")
         return
 
-    view_tasks()
-
+    view_tasks(tasks)
     choice = input("Enter the task number to remove: ").strip()
 
-    if choice.isdigit():
-        task_number = int(choice)
-
-        if 1 <= task_number <= len(tasks):
-            removed_task = tasks.pop(task_number - 1)
-            print(f"Task removed: {removed_task}")
-        else:
-            print("That task number is not on your list.")
-    else:
+    if not choice.isdigit():
         print("Please enter a valid task number.")
+        return
+
+    task_number = int(choice)
+    if not 1 <= task_number <= len(tasks):
+        print("That task number is not on your list.")
+        return
+
+    removed_task = tasks.pop(task_number - 1)
+    print(f"Task removed: {removed_task}")
 
 
-# Main program menu.
-print("========================================")
-print("       WELCOME TO MY TO-DO LIST")
-print("========================================")
-print("Keep track of your tasks easily!")
-
-while True:
+def display_menu():
+    """Print the application menu."""
     print("\n========== MENU ==========")
     print("1. Add Task")
     print("2. View Tasks")
@@ -95,24 +86,35 @@ while True:
     print("4. Remove Task")
     print("5. Quit")
 
-    choice = input("Enter your choice: ").strip()
 
-    if choice == "1":
-        add_task()
+def main():
+    """Run the to-do list application."""
+    tasks = []
 
-    elif choice == "2":
-        view_tasks()
+    print("========================================")
+    print("       WELCOME TO MY TO-DO LIST")
+    print("========================================")
+    print("Keep track of your tasks easily!")
 
-    elif choice == "3":
-        complete_task()
+    while True:
+        display_menu()
+        choice = input("Enter your choice: ").strip()
 
-    elif choice == "4":
-        remove_task()
+        if choice == "1":
+            add_task(tasks)
+        elif choice == "2":
+            view_tasks(tasks)
+        elif choice == "3":
+            complete_task(tasks)
+        elif choice == "4":
+            remove_task(tasks)
+        elif choice == "5":
+            print("\nThank you for using My To-Do List!")
+            print("Goodbye! Have a productive day.")
+            break
+        else:
+            print(f"Sorry, '{choice}' is not a valid choice. Please select 1-5.")
 
-    elif choice == "5":
-        print("\nThank you for using My To-Do List!")
-        print("Goodbye! Have a productive day.")
-        break
 
-    else:
-        print(f"Sorry, '{choice}' is not a valid choice. Please select 1-5.")
+if __name__ == "__main__":
+    main()

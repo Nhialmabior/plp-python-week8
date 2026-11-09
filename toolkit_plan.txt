@@ -4,81 +4,32 @@ PROJECT TITLE:
 To-Do List Manager
 
 PROJECT DESCRIPTION:
-This program is a simple To-Do List Manager that allows the user to add,
-view, complete, and remove tasks from a personal task list.
+A simple command-line Python application that allows a user to add, view,
+complete, and remove tasks from a personal task list.
 
 TOOLS:
-
-1. Add Task
-The Add Task tool allows the user to enter a new task and add it to the to-do list.
-
-2. View Tasks
-The View Tasks tool displays all tasks currently stored in the to-do list.
-
-3. Complete Task
-The Complete Task tool allows the user to select a task and mark it as completed.
-
-4. Remove Task
-The Remove Task tool allows the user to select a task and remove it from the list.
-
-5. Quit
-The Quit option allows the user to safely exit the program.
-
-MENU TEXT:
-
-========================================
-        MY TO-DO LIST MANAGER
-========================================
-
-1. Add Task
-2. View Tasks
-3. Complete Task
-4. Remove Task
-5. Quit
-
-Enter your choice:
+1. Add Task - asks the user for a task and adds non-empty input to the list.
+2. View Tasks - displays all current tasks with numbered positions.
+3. Complete Task - marks a selected task as completed.
+4. Remove Task - removes a selected task from the list.
+5. Quit - exits the application safely.
 
 CONCEPTS USED:
+- Variables, lists, and list indexing
+- input() and print()
+- append() and pop()
+- Functions and function arguments
+- if / elif / else conditional statements
+- for and while loops
+- enumerate() and f-strings
+- Basic input validation and string methods
+- Basic automated testing with unittest
 
-Add Task:
-- Variables
-- input()
-- print()
-- Lists
-- append()
-- if / else
-- f-strings
+VALIDATION:
+The application rejects empty tasks, non-numeric task numbers, and task
+numbers outside the available list. Invalid menu choices display a helpful
+message rather than terminating the program.
 
-View Tasks:
-- Lists
-- for loop
-- if / else
-- print()
-- f-strings
-
-Complete Task:
-- Lists
-- input()
-- if / else
-- variables
-- print()
-- f-strings
-
-Remove Task:
-- Lists
-- input()
-- if / else
-- remove()
-- print()
-- f-strings
-
-Main Menu:
-- while loop
-- if / elif / else
-- input()
-- print()
-- f-strings
-
-INVALID INPUT:
-The program will display a polite message when the user enters an option
-that is not available instead of crashing.
+CURRENT LIMITATION:
+Tasks are held in memory and are cleared when the program exits.
+Persistent storage is listed as a possible future improvement.
