@@ -18,3 +18,25 @@ htmlcov/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environments
+venv/
+.venv/
+
+# Flask and SQLite
+instance/
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment variables
+.env
+
+# Editor files
+.vscode/
+.idea/
