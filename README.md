@@ -1,61 +1,86 @@
-# Personal Mini-Toolkit: To-Do List Manager
+# Personal Mini-Toolkit – To-Do List Manager
 
-A beginner-friendly command-line task manager built with Python as the **PLP Week 8 Personal Mini-Toolkit project**. It provides a simple menu for creating, viewing, completing, and removing tasks.
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![Tests](https://img.shields.io/badge/Tests-8%20Passing-success)
+![GitHub Actions](https://github.com/Nhialmabior/plp-python-week8/actions/workflows/python-tests.yml/badge.svg)
+![Status](https://img.shields.io/badge/Project-Completed-brightgreen)
+
+## Project Overview
+
+The **Personal Mini-Toolkit – To-Do List Manager** is a command-line application developed in Python as part of the Power Learn Project (PLP) Python Week 8 assignment.
+
+The application helps users organize daily activities by creating, viewing, completing, and removing tasks through a simple interactive menu.
+
+The project demonstrates fundamental Python programming concepts, input validation, error handling, automated testing, and version control.
 
 ## Features
 
-- Add tasks to your personal list.
-- View tasks with numbered positions.
-- Mark tasks as completed.
-- Remove tasks by their list number.
-- Reject empty tasks and handle invalid menu choices or task numbers.
-- Keep the menu running until the user chooses to quit.
+- **Add Tasks:** Create new tasks and add them to your to-do list.
+- **View Tasks:** Display all available tasks and their completion status.
+- **Complete Tasks:** Mark tasks as completed.
+- **Remove Tasks:** Delete tasks that are no longer needed.
+- **Input Validation:** Prevent empty tasks and invalid task numbers.
+- **Error Handling:** Handle incorrect menu selections and non-numeric inputs.
+- **Duplicate Completion Protection:** Prevent tasks from being marked as completed more than once.
 
-> **Note:** Tasks are stored in memory while the program is running. They are cleared when you close the application. Persistent storage is a possible future improvement.
+## Technologies Used
 
-## Requirements
+- Python 3
+- Git and GitHub
+- Python `unittest` framework
+- GitHub Actions for automated testing
 
-- Python 3.8 or newer
-- No third-party packages required
+## Project Structure
 
-## Getting started
+```text
+plp-python-week8/
+│
+├── .github/
+│   └── workflows/
+│       └── python-tests.yml
+│
+├── screenshots/
+│   ├── menu_invalid_choice.png
+│   ├── task_adding.png
+│   ├── task_completed.png
+│   └── task_removed.png
+│
+├── tests/
+│   └── test_toolkit.py
+│
+├── .gitignore
+├── README.md
+├── toolkit.py
+└── toolkit_plan.txt
+```
 
-1. Install Python 3 from [python.org](https://www.python.org/downloads/) if it is not already installed.
-2. Clone this repository:
+## Getting Started
 
-   ```bash
-   git clone https://github.com/Nhialmabior/plp-python-week8.git
-   ```
+### 1. Clone the repository
 
-3. Open the project folder:
+```bash
+git clone https://github.com/Nhialmabior/plp-python-week8.git
+```
 
-   ```bash
-   cd plp-python-week8
-   ```
+### 2. Navigate into the project directory
 
-4. Start the application:
+```bash
+cd plp-python-week8
+```
 
-   ```bash
-   python toolkit.py
-   ```
+### 3. Run the application
 
-   On some Windows installations, use `py toolkit.py` instead.
+```bash
+python toolkit.py
+```
 
-## How to use
+### 4. Run automated tests
 
-When the program starts, choose an option from the menu:
+```bash
+python -m unittest discover -s tests -v
+```
 
-| Option | Action |
-| --- | --- |
-| 1 | Add a task |
-| 2 | View all tasks |
-| 3 | Mark a task as completed |
-| 4 | Remove a task |
-| 5 | Quit the application |
-
-Follow the prompts and enter the task number when asked to complete or remove a task.
-
-## Example
+## Application Menu
 
 ```text
 ========== MENU ==========
@@ -64,73 +89,87 @@ Follow the prompts and enter the task number when asked to complete or remove a 
 3. Complete Task
 4. Remove Task
 5. Quit
-Enter your choice: 1
-
---- Add Task ---
-Enter a new task: Complete my Python assignment
-Task added successfully: Complete my Python assignment
+Enter your choice:
 ```
 
-## Run the tests
+## Screenshots
 
-The project includes automated unit tests using Python's built-in `unittest` framework. From the project folder, run:
+The following screenshots demonstrate the main application features.
 
-```bash
-python -m unittest discover -s tests -v
-```
+### Task Management
 
-GitHub Actions also runs these tests whenever code is pushed to `main` or a pull request targets `main`.
+**Adding a task**
 
-## Project structure
+![Adding a task](screenshots/task_adding.png)
 
-```text
-plp-python-week8/
-├── .github/
-│   └── workflows/
-│       └── python-tests.yml
-├── screenshots/
-│   ├── menu_invalid_choice.png
-│   ├── task_adding.png
-│   ├── task_completed.png
-│   └── task_removed.png
-├── tests/
-│   └── test_toolkit.py
-├── .gitignore
-├── README.md
-├── toolkit.py
-└── toolkit_plan.txt
-```
+**Completing a task**
 
-## Python concepts demonstrated
+![Completing a task](screenshots/task_completed.png)
 
-- Variables and lists
-- Functions and function arguments
-- `input()` and `print()`
-- Conditional statements: `if`, `elif`, and `else`
-- `while` and `for` loops
-- f-strings
-- List methods: `append()` and `pop()`
-- `enumerate()` and list indexing
-- String methods: `strip()`, `isdigit()`, and `endswith()`
-- Input validation and the `if __name__ == "__main__"` pattern
-- Basic automated testing with `unittest`
+**Removing a task**
 
-## Learning reflection
+![Removing a task](screenshots/task_removed.png)
 
-The main challenge was keeping the menu active after each operation while ensuring that the application only exits when the user selects the Quit option. Handling invalid task numbers was another important lesson: the program must validate a number before using it to access a list. Building this project strengthened my understanding of lists, loops, conditions, functions, and input validation.
+### Input Validation
 
-## Future improvements
+**Handling an invalid menu selection**
 
-- Save tasks to a file so they remain available after the application closes.
-- Add task priorities and due dates.
-- Allow users to edit existing tasks.
+![Invalid menu selection](screenshots/menu_invalid_choice.png)
+
+## Testing and Quality Assurance
+
+The project includes automated unit tests using Python's built-in `unittest` framework.
+
+**Latest test results: 8 tests passed, 0 failures.**
+
+The tests cover:
+
+1. Adding tasks.
+2. Completing tasks.
+3. Rejecting empty tasks.
+4. Handling invalid task numbers.
+5. Handling non-numeric task numbers.
+6. Removing tasks.
+7. Preventing duplicate task completion.
+8. Displaying an empty task list.
+
+### Continuous Integration
+
+GitHub Actions automatically runs the test suite when changes are pushed to the repository.
+
+The workflow helps ensure that updates do not introduce unexpected errors.
+
+## Learning Outcomes
+
+Through this project, I strengthened my understanding of:
+
+- Variables and Python data structures.
+- Lists and list manipulation.
+- Functions and modular programming.
+- Conditional statements.
+- Loops and user interaction.
+- Input validation and exception handling.
+- Automated unit testing.
+- Git and GitHub version control.
+- Continuous Integration using GitHub Actions.
+
+## Future Improvements
+
+Potential future enhancements include:
+
+- Saving tasks permanently using file handling or a database.
+- Adding task priorities and deadlines.
+- Introducing task categories.
+- Developing a graphical user interface.
+- Building a web-based version of the application.
 
 ## Author
 
 **Nhial Mabior Garang**
 
-- GitHub: [@Nhialmabior](https://github.com/Nhialmabior)
+Python Developer | Frontend Developer | Data Analyst
 
----
+- GitHub: https://github.com/Nhialmabior
+- LinkedIn: https://www.linkedin.com/in/nhial-mabior/
 
-Created as a PLP Week 8 Python learning project.
+*Developed as part of the Power Learn Project Africa – Python Programming, Week 8.*
